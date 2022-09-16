@@ -4,28 +4,49 @@ using UnityEngine;
 
 public class PlayerTestState : PlayerBaseState
 {
-    private float timer;
     public PlayerTestState(PlayerStateMachine stateMachine) : base(stateMachine){}
 
     public override void Enter()
     {
-        stateMachine.InputReader.JumpEvent += OnJump;
-        Debug.Log("Enter");
+
     }
 
     public override void Tick(float deltaTime)
     {
-        timer += deltaTime;
-        Debug.Log(timer);
+        Vector3 movement = CalculateMovement();
+        //movement.x = stateMachine.InputReader.MovementValue.x;
+        //movement.y = 0;
+        //movement.z = stateMachine.InputReader.MovementValue.y;
+
+        //stateMachine.transform.Translate(movement * deltaTime);
+        stateMachine.Controller.Move(movement * deltaTime * stateMachine.FreeLookVelocity);
+
+        if(stateMachine.InputReader.MovementValue == Vector2.zero)
+        {
+            stateMachine.Animator.SetFloat("FreeLookSpeed", 0, 0.1f, deltaTime); return;
+        }
+        stateMachine.Animator.SetFloat("FreeLookSpeed", 1, 0.1f, deltaTime);
+        stateMachine.transform.rotation = Quaternion.LookRotation(movement);
     }
     public override void Exit()
     {
-        stateMachine.InputReader.JumpEvent -= OnJump;
-        Debug.Log("Exit");
+        
     }
-    public void OnJump()
+    private Vector3 CalculateMovement()
     {
-        stateMachine.SwitchState(new PlayerTestState(stateMachine));
+        Vector3 forward = stateMachine.MainCameraTransform.forward;
+        Vector3 right = stateMachine.MainCameraTransform.right;
+
+        forward.y = 0f;
+        right.y = 0f;
+        
+        forward.Normalize();
+        right.Normalize();
+
+        return forward * stateMachine.InputReader.MovementValue.y +
+            right * stateMachine.InputReader.MovementValue.x;
+        //Normalize
     }
+
 
 }

@@ -1461,6 +1461,37 @@ Transform:
   m_Father: {fileID: 3321534531811656836}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4496836907795314821
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 298563192433896401}
+  m_Layer: 0
+  m_Name: CameraFocus
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &298563192433896401
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4496836907795314821}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.694, z: -0.014}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7525863927268386538}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4616847205022313645
 GameObject:
   m_ObjectHideFlags: 0
@@ -3031,9 +3062,11 @@ GameObject:
   - component: {fileID: 7525863927268386538}
   - component: {fileID: 5851799004784755431}
   - component: {fileID: 2111803512763636146}
+  - component: {fileID: 6839502755887332062}
+  - component: {fileID: 6991257620701214827}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3052,6 +3085,7 @@ Transform:
   m_Children:
   - {fileID: 2554959305209701495}
   - {fileID: 2603484734718494334}
+  - {fileID: 298563192433896401}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3079,7 +3113,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80e0f2e71863e2f4bbd866f20d6142f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Controller>k__BackingField: {fileID: 6991257620701214827}
+  <Animator>k__BackingField: {fileID: 6839502755887332062}
   <InputReader>k__BackingField: {fileID: 5851799004784755431}
+  <FreeLookVelocity>k__BackingField: 6
+--- !u!95 &6839502755887332062
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7150288984834473040}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6110c81b16b03e141b93f585b28a0235, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!143 &6991257620701214827
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7150288984834473040}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 2.42
+  m_Radius: 0.32
+  m_SlopeLimit: 43
+  m_StepOffset: 0
+  m_SkinWidth: 0.032
+  m_MinMoveDistance: 0
+  m_Center: {x: 0.03, y: 1.1, z: 0.04}
 --- !u!1 &7195968013828089206
 GameObject:
   m_ObjectHideFlags: 0
