@@ -19,10 +19,6 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
         controls.Player.SetCallbacks(this);
         controls.Player.Enable();
     }
-    private void OnDestroy()
-    {
-        controls.Player.Disable();
-    }
     public void OnJump(InputAction.CallbackContext context)
     {
         if(!context.performed){return;}

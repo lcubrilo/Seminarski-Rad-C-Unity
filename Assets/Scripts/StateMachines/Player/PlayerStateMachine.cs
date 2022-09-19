@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class PlayerStateMachine : StateMachine
 {
-    
+    [field: SerializeField] public ForceReceiver ForceReceiver {get;private set;}
     [field: SerializeField] public CharacterController Controller {get;private set;}
     [field: SerializeField] public Animator Animator {get;private set;}
     [field: SerializeField] public InputReader InputReader {get;private set;}
     [field: SerializeField] public float FreeLookVelocity {get;private set;}
+    [field: SerializeField] public float TargetingVelocity {get;private set;}
     [field: SerializeField] public float RotationDamping {get;private set;}
     [field: SerializeField] public Targeter Targeter {get;private set;}
 
