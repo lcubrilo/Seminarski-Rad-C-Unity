@@ -6,11 +6,13 @@ using UnityEngine.InputSystem;
 
 public class InputReader : MonoBehaviour, Controls.IPlayerActions
 {
+    public bool IsAttacking {get; private set;}
     public Vector2 MovementValue {get; private set;}
     public event Action JumpEvent;
     public event Action DodgeEvent;
     public event Action TargetEvent;
     public event Action CancelEvent;
+    //public event Action AttackEvent;
     private Controls controls;
     // Add a state machine here and cause it to change state??? within the onjump?
     void Start()
@@ -43,5 +45,14 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     {
         if(!context.performed){return;}
         CancelEvent?.Invoke();
+    }
+
+    public void OnAttack(InputAction.CallbackContext context)
+    {
+        if(context.canceled){IsAttacking = false;}
+        else if(!context.performed){return;}
+        
+        //AttackEvent?.Invoke();
+        IsAttacking = true;
     }
 }

@@ -1265,7 +1265,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6576417088127589719, guid: 30e5e64192447bb459d43217bf8f0a95, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 309.95
+      value: 309.59
       objectReference: {fileID: 0}
     - target: {fileID: 6576417088127589719, guid: 30e5e64192447bb459d43217bf8f0a95, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2572,7 +2572,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6576417088127589719, guid: 30e5e64192447bb459d43217bf8f0a95, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 316.1
+      value: 315.55
       objectReference: {fileID: 0}
     - target: {fileID: 6576417088127589719, guid: 30e5e64192447bb459d43217bf8f0a95, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3443,21 +3443,41 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerRig
       objectReference: {fileID: 0}
+    - target: {fileID: 4015290462854583989, guid: 4b6c13c7894915c489a613fa8d8bb182, type: 3}
+      propertyPath: <Attacks>k__BackingField.Array.data[0].<AnimationName>k__BackingField
+      value: Attack1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4015290462854583989, guid: 4b6c13c7894915c489a613fa8d8bb182, type: 3}
+      propertyPath: <Attacks>k__BackingField.Array.data[1].<AnimationName>k__BackingField
+      value: Attack2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4015290462854583989, guid: 4b6c13c7894915c489a613fa8d8bb182, type: 3}
+      propertyPath: <Attacks>k__BackingField.Array.data[2].<AnimationName>k__BackingField
+      value: Attack3
+      objectReference: {fileID: 0}
     - target: {fileID: 5381365293704090672, guid: 4b6c13c7894915c489a613fa8d8bb182, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.0032124496
+      value: 0.003212441
       objectReference: {fileID: 0}
     - target: {fileID: 5381365293704090672, guid: 4b6c13c7894915c489a613fa8d8bb182, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.00032463638
+      value: -0.0003246355
+      objectReference: {fileID: 0}
+    - target: {fileID: 5381365295235366987, guid: 4b6c13c7894915c489a613fa8d8bb182, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9759526
+      objectReference: {fileID: 0}
+    - target: {fileID: 5381365295235366987, guid: 4b6c13c7894915c489a613fa8d8bb182, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.18485661
       objectReference: {fileID: 0}
     - target: {fileID: 5381365295235366987, guid: 4b6c13c7894915c489a613fa8d8bb182, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.10618733
+      value: 0.11350036
       objectReference: {fileID: 0}
     - target: {fileID: 5381365295235366987, guid: 4b6c13c7894915c489a613fa8d8bb182, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.020113098
+      value: -0.021498267
       objectReference: {fileID: 0}
     - target: {fileID: 6457498155553466781, guid: 4b6c13c7894915c489a613fa8d8bb182, type: 3}
       propertyPath: m_ChildCameras.Array.size

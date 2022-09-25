@@ -3183,6 +3183,22 @@ MonoBehaviour:
   <TargetingVelocity>k__BackingField: 4
   <RotationDamping>k__BackingField: 12
   <Targeter>k__BackingField: {fileID: 9165776412463246204}
+  <Attacks>k__BackingField:
+  - <AnimationName>k__BackingField: Attack1
+    <TransitionDuration>k__BackingField: 0.1
+    <AttackTime>k__BackingField: 0.6
+    <ForceTime>k__BackingField: 0.35
+    <Force>k__BackingField: 15
+  - <AnimationName>k__BackingField: Attack2
+    <TransitionDuration>k__BackingField: 0.1
+    <AttackTime>k__BackingField: 0.5
+    <ForceTime>k__BackingField: 0.35
+    <Force>k__BackingField: 15
+  - <AnimationName>k__BackingField: Attack3
+    <TransitionDuration>k__BackingField: 0.2
+    <AttackTime>k__BackingField: 1
+    <ForceTime>k__BackingField: 0.35
+    <Force>k__BackingField: 20
 --- !u!95 &6839502755887332062
 Animator:
   serializedVersion: 4
@@ -3234,6 +3250,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 6991257620701214827}
+  drag: 0.1
 --- !u!1 &7195968013828089206
 GameObject:
   m_ObjectHideFlags: 0
