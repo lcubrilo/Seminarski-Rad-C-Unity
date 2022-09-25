@@ -9,12 +9,10 @@ public class PlayerAttackState : PlayerBaseState
     private bool appliedForce = false;
     private Attack attack;
     private PlayerBaseState previousState;
-    private int index;
 
     public PlayerAttackState(PlayerStateMachine stateMachine, int attackIndex) : base(stateMachine)
     {
         attack = stateMachine.Attacks[attackIndex];
-        index = attackIndex;
     }
 
 
@@ -43,7 +41,7 @@ public class PlayerAttackState : PlayerBaseState
         }
         else
         {
-            // go back to locotmotion
+            //stateMachine.SwitchState(new PlayerTargetingState(stateMachine));
         }
 
         previousFrameTime = normalizedTime;
@@ -56,11 +54,15 @@ public class PlayerAttackState : PlayerBaseState
     }
     private void TryComboAttack(float normalizedTime)
     {
-        if (index == -1) { return; }
-
+        Debug.Log("Tried combo");
+        Debug.Log(attack.ComboIndex);
+        
+        if (attack.ComboIndex == -1) { return; }
+        Debug.Log(normalizedTime);
         if (normalizedTime < attack.AttackTime) { return; }
-
-        stateMachine.SwitchState(new PlayerAttackState(stateMachine, index));
+        
+        Debug.Log("Attack is done");
+        stateMachine.SwitchState(new PlayerAttackState(stateMachine, attack.ComboIndex));
 
     }
     private void TryApplyForce(float normalizedTime)
@@ -74,8 +76,18 @@ public class PlayerAttackState : PlayerBaseState
         AnimatorStateInfo curr = stateMachine.Animator.GetCurrentAnimatorStateInfo(0);
         AnimatorStateInfo next = stateMachine.Animator.GetNextAnimatorStateInfo(0);
         
-        if(!next.IsTag("Attack")){return 0f;}
-        if(stateMachine.Animator.IsInTransition(0)){   return next.normalizedTime;}
-        else{return curr.normalizedTime;}
+        if (stateMachine.Animator.IsInTransition(0) && next.IsTag("Attack"))
+        {
+            return next.normalizedTime;
+        }
+        else if (!stateMachine.Animator.IsInTransition(0) && curr.IsTag("Attack"))
+        {
+            return curr.normalizedTime;
+        }
+        else
+        {
+            return 0f;
+        }
+
     }
 }

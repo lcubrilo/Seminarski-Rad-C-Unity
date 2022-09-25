@@ -8,7 +8,7 @@ public class Attack
 {
     [field: SerializeField] public string AnimationName { get; private set; }
     [field: SerializeField] public float TransitionDuration { get; private set; }
-    //TODO
+    [field: SerializeField] public int ComboIndex { get; private set; } = -1;
     [field: SerializeField] public float AttackTime { get; private set; }
     [field: SerializeField] public float ForceTime { get; private set; }
     [field: SerializeField] public float Force { get; private set; }

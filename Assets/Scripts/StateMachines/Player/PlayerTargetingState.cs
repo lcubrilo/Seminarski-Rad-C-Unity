@@ -8,7 +8,7 @@ public class PlayerTargetingState : PlayerBaseState
     private readonly int TargetingForwardHash = Animator.StringToHash("ForwardSpeed");
     private readonly int TargetingRightHash = Animator.StringToHash("RightSpeed");
     private const float AnimatorDampTime = 0.1f;
-    private int AttackId;
+    private int AttackId = -1;
     public PlayerTargetingState(PlayerStateMachine stateMachine) : base(stateMachine){}
 
     public override void Enter()
@@ -22,7 +22,7 @@ public class PlayerTargetingState : PlayerBaseState
         {
             Debug.Log("yo");
             AttackId = (AttackId+1) % stateMachine.Attacks.Length;
-            stateMachine.SwitchState(new PlayerAttackState(stateMachine, AttackId));
+            stateMachine.SwitchState(new PlayerAttackState(stateMachine, 0));
             return;
         }
         else{AttackId = -1;}

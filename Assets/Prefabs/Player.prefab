@@ -3186,17 +3186,20 @@ MonoBehaviour:
   <Attacks>k__BackingField:
   - <AnimationName>k__BackingField: Attack1
     <TransitionDuration>k__BackingField: 0.1
+    <ComboIndex>k__BackingField: 1
     <AttackTime>k__BackingField: 0.6
-    <ForceTime>k__BackingField: 0.35
+    <ForceTime>k__BackingField: 1
     <Force>k__BackingField: 15
   - <AnimationName>k__BackingField: Attack2
     <TransitionDuration>k__BackingField: 0.1
+    <ComboIndex>k__BackingField: 2
     <AttackTime>k__BackingField: 0.5
     <ForceTime>k__BackingField: 0.35
     <Force>k__BackingField: 15
   - <AnimationName>k__BackingField: Attack3
     <TransitionDuration>k__BackingField: 0.2
-    <AttackTime>k__BackingField: 1
+    <ComboIndex>k__BackingField: -1
+    <AttackTime>k__BackingField: 0
     <ForceTime>k__BackingField: 0.35
     <Force>k__BackingField: 20
 --- !u!95 &6839502755887332062
