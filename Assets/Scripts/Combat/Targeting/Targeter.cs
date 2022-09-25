@@ -5,9 +5,15 @@ using UnityEngine;
 
 public class Targeter : MonoBehaviour
 {
+    private Camera mainCamera;
     [SerializeField] private CinemachineTargetGroup cineTargetGroup;
     public List<Target> targets = new List<Target>();
     public Target CurrentTarget {get; private set;}
+    private void Start()
+    {
+        mainCamera = Camera.main;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if(!other.TryGetComponent<Target>(out Target t)){return;}
@@ -22,13 +28,32 @@ public class Targeter : MonoBehaviour
     public bool SelectTarget()
     {
         if(targets.Count == 0){return false;}
-        CurrentTarget = targets[0];
+        Target closestTarget = null;
+        float closestTargetDistance = Mathf.Infinity;
+        foreach(Target target in targets)
+        {
+            Vector2 viewpos = mainCamera.WorldToViewportPoint(target.transform.position);
+            if(viewpos.x<0||viewpos.x>1||viewpos.y<0||viewpos.y>1){continue;}
+
+            Vector2 toCenter = viewpos - new Vector2(0.5f, 0.5f);
+            if(toCenter.sqrMagnitude < closestTargetDistance)
+            {
+                closestTarget = target;
+                closestTargetDistance = toCenter.sqrMagnitude;
+                // Modified Pythagora's Theorem
+            }
+        }
+        if(closestTarget==null){return false;}
+
+        CurrentTarget = closestTarget;
         cineTargetGroup.AddMember(CurrentTarget.transform, 1f, 2f);
+
         return true;
     }
     public void Cancel()
     {
         if(CurrentTarget==null){return;}
+
         cineTargetGroup.RemoveMember(CurrentTarget.transform);
         CurrentTarget = null;
     }
