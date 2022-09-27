@@ -23,12 +23,12 @@ public class PlayerAttackState : PlayerBaseState
     public override void Tick(float deltaTime)
     {
         Move(deltaTime); //Aplies forces
-        //Rotated in lock-in
+        FaceTarget();
         //Debug.Log(GetNormalizedTime());
         //Debug.Log(attack.AttackTime);
         float normalizedTime = GetNormalizedTime();
 
-        if (normalizedTime > previousFrameTime && normalizedTime < 1f)
+        if (normalizedTime < 1f)
         {
             if (stateMachine.InputReader.IsAttacking)
             {
@@ -41,7 +41,7 @@ public class PlayerAttackState : PlayerBaseState
         }
         else
         {
-            //stateMachine.SwitchState(new PlayerTargetingState(stateMachine));
+            stateMachine.SwitchState(new PlayerTargetingState(stateMachine));
         }
 
         previousFrameTime = normalizedTime;
@@ -54,14 +54,18 @@ public class PlayerAttackState : PlayerBaseState
     }
     private void TryComboAttack(float normalizedTime)
     {
-        Debug.Log("Tried combo");
-        Debug.Log(attack.ComboIndex);
+        Debug.Log("Trying attack at index: " + attack.ComboIndex);
         
         if (attack.ComboIndex == -1) { return; }
-        Debug.Log(normalizedTime);
+        //Debug.Log(normalizedTime);
         if (normalizedTime < attack.AttackTime) { return; }
         
         Debug.Log("Attack is done");
+        if (attack.ComboIndex == -1)
+        { 
+            stateMachine.SwitchState(new PlayerTargetingState(stateMachine));
+            Exit(); return;
+        }
         stateMachine.SwitchState(new PlayerAttackState(stateMachine, attack.ComboIndex));
 
     }

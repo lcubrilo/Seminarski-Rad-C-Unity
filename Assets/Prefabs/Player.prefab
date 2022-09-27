@@ -3199,7 +3199,7 @@ MonoBehaviour:
   - <AnimationName>k__BackingField: Attack3
     <TransitionDuration>k__BackingField: 0.2
     <ComboIndex>k__BackingField: -1
-    <AttackTime>k__BackingField: 0
+    <AttackTime>k__BackingField: 1
     <ForceTime>k__BackingField: 0.35
     <Force>k__BackingField: 20
 --- !u!95 &6839502755887332062
