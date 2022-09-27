@@ -19,6 +19,7 @@ public class PlayerAttackState : PlayerBaseState
     public override void Enter()
     {
         stateMachine.Animator.CrossFadeInFixedTime(attack.AnimationName, attack.TransitionDuration);
+        stateMachine.Ouchy.SetAttack(attack.Damage);
     }
     public override void Tick(float deltaTime)
     {
@@ -54,7 +55,7 @@ public class PlayerAttackState : PlayerBaseState
     }
     private void TryComboAttack(float normalizedTime)
     {
-        Debug.Log("Trying attack at index: " + attack.ComboIndex);
+        //Debug.Log("Trying attack at index: " + attack.ComboIndex);
         
         if (attack.ComboIndex == -1) { return; }
         //Debug.Log(normalizedTime);
