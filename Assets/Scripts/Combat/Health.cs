@@ -17,6 +17,6 @@ public class Health : MonoBehaviour
         //Debug.Log(damage);
         if (health <= 0){return;}
         health -= damage;
-        //Debug.Log(health);
+        Debug.Log(health);
     }
 }

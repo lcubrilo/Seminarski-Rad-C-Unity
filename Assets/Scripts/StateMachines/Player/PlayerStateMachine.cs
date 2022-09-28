@@ -23,4 +23,5 @@ public class PlayerStateMachine : StateMachine
         
         SwitchState(new PlayerFreeLookState(this));
     }
+    
 }
