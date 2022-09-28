@@ -264,6 +264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myself: {fileID: 5472542866618693484}
+  healthBar: {fileID: 0}
   attackedSoFar: []
 --- !u!54 &2108490757941798920
 Rigidbody:

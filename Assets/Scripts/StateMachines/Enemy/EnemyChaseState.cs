@@ -39,9 +39,12 @@ public class EnemyChaseState : EnemyBaseState
     private void MoveToPlayer(float deltaTime)
     {
         Debug.Log("Attempt movement");
-        stateMachine.Agent.destination = stateMachine.Player.transform.position;
+        if(stateMachine.Agent.isOnNavMesh){
+            stateMachine.Agent.destination = stateMachine.Player.transform.position;
 
-        Move(stateMachine.Agent.desiredVelocity.normalized * stateMachine.MovementSpeed, deltaTime);
+            Move(stateMachine.Agent.desiredVelocity.normalized * stateMachine.MovementSpeed, deltaTime);
+        }
+        
 
         stateMachine.Agent.velocity = stateMachine.Controller.velocity;
 

@@ -14,7 +14,7 @@ public class EnemyStateMachine : StateMachine
     [field: SerializeField] public float PlayerSight { get; private set; }
     [field: SerializeField] public float PlayerReach { get; private set; }
     [field: SerializeField] public WeaponDamage Ouchy { get; private set; }
-    
+    [field: SerializeField] public Health health { get; private set; }
     public GameObject Player { get; private set; }
 
     
@@ -32,5 +32,18 @@ public class EnemyStateMachine : StateMachine
         Gizmos.DrawWireSphere(transform.position, PlayerSight);
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, PlayerReach);
+    }
+    private void OnEnable()
+    {
+        health.OnImpact += HandleTakeDamage;
+    }
+
+    private void OnDisnable()
+    {
+        health.OnImpact += HandleTakeDamage;
+    }
+    private void HandleTakeDamage()
+    {
+        SwitchState(new EnemyImpactState(this));
     }
 }

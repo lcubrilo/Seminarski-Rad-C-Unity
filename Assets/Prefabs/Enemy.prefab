@@ -1331,10 +1331,12 @@ MonoBehaviour:
   <Controller>k__BackingField: {fileID: 1488920911477146744}
   <ForceReceiver>k__BackingField: {fileID: 5102636044563550511}
   <Agent>k__BackingField: {fileID: 6992280915210945974}
+  <Weapon>k__BackingField: {fileID: 4142181867829145894}
   <MovementSpeed>k__BackingField: 2.6
   <PlayerSight>k__BackingField: 11
-  <PlayerReach>k__BackingField: 3
-  <Ouchy>k__BackingField: {fileID: 0}
+  <PlayerReach>k__BackingField: 1.6
+  <Ouchy>k__BackingField: {fileID: 4142181867829145894}
+  <health>k__BackingField: {fileID: 5714368930786576570}
 --- !u!114 &5125977415550918873
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1361,6 +1363,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   health: 0
+  healthBar: {fileID: 0}
 --- !u!114 &5102636044563550511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1374,6 +1377,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 1488920911477146744}
+  agent: {fileID: 6992280915210945974}
   drag: 0.3
 --- !u!114 &8066572262300629503
 MonoBehaviour:
@@ -1756,6 +1760,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6988348139363762098, guid: dcc349e4afd0a2f47bc877bf31d2f55b, type: 3}
   m_PrefabInstance: {fileID: 6232905536040878259}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4142181867829145894 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7999596876083851669, guid: dcc349e4afd0a2f47bc877bf31d2f55b, type: 3}
+  m_PrefabInstance: {fileID: 6232905536040878259}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3928303346326290177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84f8029647d00d34b968fe2a9491c871, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &8864875342279086765 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3276904912912536094, guid: dcc349e4afd0a2f47bc877bf31d2f55b, type: 3}

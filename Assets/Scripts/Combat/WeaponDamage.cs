@@ -40,10 +40,20 @@ public class WeaponDamage : MonoBehaviour
         
 
         if (other.TryGetComponent<Health>(out Health health))
-        {
             //Debug.Log("Deal dmg");
             health.DealDamage(damage);
+        
+        if (other.TryGetComponent<ForceReceiver>(out ForceReceiver fr)){
+            //Debug.Log("Deal dmg");
+            Vector3 direction = (other.transform.position - myself.transform.position).normalized;
+
+            direction.x *= 0.2f;
+            direction.y *= 0.2f;
+            direction.z *= 0.2f;
+            
+            fr.AddForce(direction);
         }
+        
     }
 
     public void SetAttack(int damage)

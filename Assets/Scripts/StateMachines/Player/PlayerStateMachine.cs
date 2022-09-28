@@ -14,6 +14,10 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField] public Targeter Targeter {get;private set;}
     [field: SerializeField] public Attack[] Attacks { get; private set; }
     [field: SerializeField] public WeaponDamage Ouchy { get; private set; }
+    [field: SerializeField] public Health health { get; private set; }
+    [field: SerializeField] public GameObject GUI { get; private set; }
+    [field: SerializeField] public GameObject DeathScreen { get; private set; }
+    
     
     
     public Transform MainCameraTransform {get; private set;}
@@ -23,5 +27,17 @@ public class PlayerStateMachine : StateMachine
         
         SwitchState(new PlayerFreeLookState(this));
     }
-    
+    private void OnEnable()
+    {
+        health.OnImpact += HandleTakeDamage;
+    }
+
+    private void OnDisnable()
+    {
+        health.OnImpact += HandleTakeDamage;
+    }
+    private void HandleTakeDamage()
+    {
+        SwitchState(new PlayerImpactState(this));
+    }
 }

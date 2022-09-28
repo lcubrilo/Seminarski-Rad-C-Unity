@@ -1582,6 +1582,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myself: {fileID: 6991257620701214827}
+  healthBar: {fileID: 0}
   attackedSoFar: []
 --- !u!54 &7217278916110709038
 Rigidbody:
@@ -3287,6 +3288,7 @@ MonoBehaviour:
     <Force>k__BackingField: 20
     <Damage>k__BackingField: 20
   <Ouchy>k__BackingField: {fileID: 7285638366690886132}
+  <health>k__BackingField: {fileID: 95693342204666452}
 --- !u!95 &6839502755887332062
 Animator:
   serializedVersion: 4
@@ -3338,6 +3340,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 6991257620701214827}
+  agent: {fileID: 0}
   drag: 0.1
 --- !u!114 &2646654006636521674
 MonoBehaviour:
@@ -3366,6 +3369,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   health: 0
+  healthBar: {fileID: 0}
 --- !u!1 &7195968013828089206
 GameObject:
   m_ObjectHideFlags: 0
