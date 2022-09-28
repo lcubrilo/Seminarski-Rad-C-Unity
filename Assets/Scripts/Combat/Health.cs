@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] private int maxHealth = 100;
+    [SerializeField] public int maxHealth = 100;
     public int health;
+    [SerializeField] public GameObject healthBar;
 
     private void Start()
     {
@@ -18,5 +21,11 @@ public class Health : MonoBehaviour
         if (health <= 0){return;}
         health -= damage;
         Debug.Log(health);
+
+        if(healthBar!=null)
+        {
+            healthBar.TryGetComponent<Slider>(out Slider sl);
+            sl.value -= damage;
+        }
     }
 }

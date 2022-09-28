@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WeaponDamage : MonoBehaviour
 {
     [SerializeField] private Collider myself;
+    [SerializeField] public GameObject healthBar;
+    
     public List<Collider> attackedSoFar = new List<Collider>();
     private int damage;
 

@@ -20,7 +20,14 @@ public class EnemyChaseState : EnemyBaseState
             stateMachine.SwitchState(new EnemyIdleState(stateMachine));
             return;
         }
+        if(IsInReach())
+        {
+            Debug.Log("I can hit you.");
+            stateMachine.SwitchState(new EnemyAttackState(stateMachine));
+            return;
+        }
         MoveToPlayer(deltaTime);
+        FacePlayer();
         stateMachine.Animator.SetFloat(SpeedHash, 1f, 0.1f, deltaTime);
     }
     public override void Exit()
