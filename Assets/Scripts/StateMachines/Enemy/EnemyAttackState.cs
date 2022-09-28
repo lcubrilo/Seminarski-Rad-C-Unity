@@ -10,6 +10,9 @@ public class EnemyAttackState : EnemyBaseState
     {
         stateMachine.Animator.CrossFadeInFixedTime(AttackHash, 0.1f);
         stateMachine.Weapon.SetAttack(20);
+        GameObject Player = GameObject.FindGameObjectWithTag("Player");
+        Player.TryGetComponent<PlayerStateMachine>(out PlayerStateMachine psm);
+        psm.attacked();
     }
 
     public override void Tick(float deltaTime)

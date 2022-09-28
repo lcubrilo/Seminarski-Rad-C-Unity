@@ -9,7 +9,10 @@ public class EnemyChaseState : EnemyBaseState
     protected readonly int SpeedHash = Animator.StringToHash("Velocity");
     public override void Enter()
     {
-         stateMachine.Animator.CrossFadeInFixedTime(LocomotionHash, 0.1f);
+        stateMachine.Animator.CrossFadeInFixedTime(LocomotionHash, 0.1f);
+        GameObject Player = GameObject.FindGameObjectWithTag("Player");
+        Player.TryGetComponent<PlayerStateMachine>(out PlayerStateMachine psm);
+        psm.spotted();
     }
 
     public override void Tick(float deltaTime)
