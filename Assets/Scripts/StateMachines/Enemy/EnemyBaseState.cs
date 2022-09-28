@@ -5,8 +5,6 @@ using UnityEngine;
 public abstract class EnemyBaseState : State
 {
     protected EnemyStateMachine stateMachine;
-    protected readonly int LocomotionHash = Animator.StringToHash("Locomotion");
-    protected readonly int SpeedHash = Animator.StringToHash("Speed");
     public EnemyBaseState(EnemyStateMachine stateMachine)
     {
         this.stateMachine = stateMachine;

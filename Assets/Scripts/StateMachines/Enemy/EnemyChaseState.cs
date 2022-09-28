@@ -5,7 +5,8 @@ using UnityEngine;
 public class EnemyChaseState : EnemyBaseState
 {
     public EnemyChaseState(EnemyStateMachine stateMachine) : base(stateMachine){ this.stateMachine = stateMachine;}
-
+    protected readonly int LocomotionHash = Animator.StringToHash("Locomotion");
+    protected readonly int SpeedHash = Animator.StringToHash("Velocity");
     public override void Enter()
     {
          stateMachine.Animator.CrossFadeInFixedTime(LocomotionHash, 0.1f);
@@ -30,6 +31,7 @@ public class EnemyChaseState : EnemyBaseState
     }
     private void MoveToPlayer(float deltaTime)
     {
+        Debug.Log("Attempt movement");
         stateMachine.Agent.destination = stateMachine.Player.transform.position;
 
         Move(stateMachine.Agent.desiredVelocity.normalized * stateMachine.MovementSpeed, deltaTime);

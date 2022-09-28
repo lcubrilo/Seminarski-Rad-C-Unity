@@ -1329,7 +1329,7 @@ MonoBehaviour:
   <Controller>k__BackingField: {fileID: 1488920911477146744}
   <ForceReceiver>k__BackingField: {fileID: 5102636044563550511}
   <Agent>k__BackingField: {fileID: 6992280915210945974}
-  <MovementSpeed>k__BackingField: 0
+  <MovementSpeed>k__BackingField: 2.6
   <PlayerSight>k__BackingField: 10
   <PlayerReach>k__BackingField: 0
 --- !u!114 &5125977415550918873

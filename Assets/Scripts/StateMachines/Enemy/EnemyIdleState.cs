@@ -5,10 +5,11 @@ using UnityEngine;
 public class EnemyIdleState : EnemyBaseState
 {
     public EnemyIdleState(EnemyStateMachine stateMachine) : base(stateMachine){  }
-
+    protected readonly int LocomotionHash = Animator.StringToHash("Locomotion");
+    protected readonly int SpeedHash = Animator.StringToHash("Velocity");
     public override void Enter()
     {
-        Debug.Log("Idle")ч
+        Debug.Log("Idle");
         stateMachine.Animator.CrossFadeInFixedTime(LocomotionHash, 0.1f);
     }
 
