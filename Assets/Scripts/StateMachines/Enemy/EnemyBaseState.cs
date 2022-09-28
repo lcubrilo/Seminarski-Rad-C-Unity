@@ -5,7 +5,8 @@ using UnityEngine;
 public abstract class EnemyBaseState : State
 {
     protected EnemyStateMachine stateMachine;
-
+    protected readonly int LocomotionHash = Animator.StringToHash("Locomotion");
+    protected readonly int SpeedHash = Animator.StringToHash("Speed");
     public EnemyBaseState(EnemyStateMachine stateMachine)
     {
         this.stateMachine = stateMachine;
@@ -28,18 +29,27 @@ public abstract class EnemyBaseState : State
         return playerDistanceSqr <= stateMachine.PlayerSight * stateMachine.PlayerSight;
 
     }
+    protected bool IsInReach()
+    {
+        float playerDistanceSqr = (stateMachine.Player.transform.position - stateMachine.transform.position).sqrMagnitude;
+
+        //Debug.Log(playerDistanceSqr);
+        //Debug.Log(stateMachine.PlayerSight * stateMachine.PlayerSight);
+        return playerDistanceSqr <= stateMachine.PlayerReach * stateMachine.PlayerReach;
+
+    }
     public override void Enter()
     {
-        throw new System.NotImplementedException();
+        
     }
 
     public override void Tick(float deltaTime)
     {
-        throw new System.NotImplementedException();
+        
     }
     public override void Exit()
     {
-        throw new System.NotImplementedException();
+        
     }
 
 }
