@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerFreeLookState : PlayerBaseState
 {
@@ -13,6 +14,11 @@ public class PlayerFreeLookState : PlayerBaseState
     {
         stateMachine.InputReader.TargetEvent += OnTarget;
         stateMachine.Animator.Play(FreeLookBlendTreeHash);
+        if(stateMachine.health.healthBar.TryGetComponent<Slider>(out Slider sl))
+        {
+            sl.value = stateMachine.health.health;
+            sl.maxValue = stateMachine.health.maxHealth;
+        }
     }
 
     public override void Tick(float deltaTime)

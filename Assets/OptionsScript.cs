@@ -34,9 +34,22 @@ public class OptionsScript : MonoBehaviour
     {
         mainMixer.SetFloat("MasterVolume", volume);
     }
-
+    public void SetResolution(int resolutionIndex)
+    {
+        Resolution res = resolutions[resolutionIndex];
+        Screen.SetResolution(res.width, res.height, Screen.fullScreen);
+    }
     public void SetFullscreen(bool isFull)
     {
         Screen.fullScreen = isFull;
+    }
+    public void StopTime()
+    {
+        Time.timeScale = 0f;
+    }
+
+    public void StartTime()
+    {
+        Time.timeScale = 1f;
     }
 }

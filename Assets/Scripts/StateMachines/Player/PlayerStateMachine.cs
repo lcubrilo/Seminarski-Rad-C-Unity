@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerStateMachine : StateMachine
 {
@@ -15,7 +16,9 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField] public Attack[] Attacks { get; private set; }
     [field: SerializeField] public WeaponDamage Ouchy { get; private set; }
     [field: SerializeField] public Health health { get; private set; }
-    [field: SerializeField] public GameObject GUI { get; private set; }
+    [field: SerializeField] public GameObject HealthbarGUI { get; private set; }
+    [field: SerializeField] public GameObject SettingsButton { get; private set; }
+    
     [field: SerializeField] public GameObject DeathScreen { get; private set; }
     
     [SerializeField] public GameObject[] tips;
@@ -45,8 +48,13 @@ public class PlayerStateMachine : StateMachine
     public Transform MainCameraTransform {get; private set;}
     private void Start()
     {
+        Debug.Log("Here we go.");
+        Debug.Log(tips);
         if(tips.Length > 0)
         {
+            Debug.Log("I have a control tip for you.");
+            //Debug.Log(tips[0].)
+            if(tips[0].TryGetComponent<TextMeshProUGUI>(out TextMeshProUGUI tmpugui))  Debug.Log(tmpugui.text);
             tips[0].SetActive(true);
             Destroy(tips[0], 5.0f);
         }

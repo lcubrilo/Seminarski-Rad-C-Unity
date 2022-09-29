@@ -20,7 +20,8 @@ public class PlayerDeadState : PlayerBaseState
         if(dyingTime <= 0)
         {
             Debug.Log("lol noob");
-            stateMachine.GUI.SetActive(false);
+            stateMachine.HealthbarGUI.SetActive(false);
+            stateMachine.SettingsButton.SetActive(false);
             stateMachine.DeathScreen.SetActive(true);
             Exit();
         }
