@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyIdleState : EnemyBaseState
 {
@@ -11,6 +12,11 @@ public class EnemyIdleState : EnemyBaseState
     {
         Debug.Log("Idle");
         stateMachine.Animator.CrossFadeInFixedTime(LocomotionHash, 0.1f);
+        if(stateMachine.health.healthBar.TryGetComponent<Slider>(out Slider sl))
+        {
+            sl.value = stateMachine.health.health;
+            sl.maxValue = stateMachine.health.maxHealth;
+        }
     }
 
     public override void Tick(float deltaTime)

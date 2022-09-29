@@ -9,7 +9,7 @@ public class PlayerDeadState : PlayerBaseState
     {
     }
     protected readonly int DiedHash = Animator.StringToHash("Died");
-    private float dyingTime = 4.0f;
+    private float dyingTime = 3.0f;
     public override void Enter()
     {
         stateMachine.Animator.CrossFadeInFixedTime(DiedHash, 0.1f);

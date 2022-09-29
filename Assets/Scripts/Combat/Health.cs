@@ -29,7 +29,7 @@ public class Health : MonoBehaviour
         if(healthBar!=null)
         {
             healthBar.TryGetComponent<Slider>(out Slider sl);
-            sl.value -= damage;
+            sl.value = health;
         }
     }
 }
